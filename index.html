@@ -1,0 +1,618 @@
+ <!DOCTYPE html>
+  <html>
+    <head>
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <link href="css/prism.css" rel="stylesheet">
+    <link href="css/materialize.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/ghpages-materialize.css" type="text/css" rel="stylesheet" media="screen,projection">
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+
+    <body>
+<!--
+      <header>
+        <nav class="top-nav">
+          <div class="container">
+            <div class="nav-wrapper">
+              <div class="row">
+                <div class="col s12 m10 offset-m1">
+                  <h1 class="header">Sidenav</h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+
+      </header>
+-->
+    <main>
+
+      <div class="container">
+   
+<!--
+        <ul id="slide-out" class="sidenav">
+          <li>
+            <div class="user-view">
+              <div class="background">
+                <img src="images/office.jpg">
+              </div>
+              <a href="#user">
+                <img class="circle" src="images/yuna.jpg">
+              </a>
+              <a href="#name">
+                <span class="white-text name">John Doe</span>
+              </a>
+              <a href="#email">
+                <span class="white-text email">jdandturk@gmail.com</span>
+              </a>
+            </div>
+          </li>
+          <li>
+            <a href="#!">
+              <i class="material-icons">cloud</i>First Link With Icon</a>
+          </li>
+          <li>
+            <a href="#!">Second Link</a>
+          </li>
+          <li>
+            <div class="divider"></div>
+          </li>
+          <li>
+            <a class="subheader">Subheader</a>
+          </li>
+          <li>
+            <a class="waves-effect" href="#!">Third Link With Waves</a>
+          </li>
+        </ul>
+-->
+
+    <ul id="slide-out" class="sidenav">
+        <li class="bold"><a href="index.html" class="waves-effect waves-teal">Home</a></li>
+        <li class="bold"><a href="https://env-175318.customer.cloud.microstrategy.com/MicroStrategyLibrary/app/B7CA92F04B9FAE8D941C3E9B7E0CD754/7281AE8011EA7A03B11C0080EFD57DCB" target="mstrframe" class="waves-effect waves-teal sidenav-close">Corporate Sales Overview</a></li>
+        <li class="no-padding">
+          <ul class="collapsible collapsible-accordion">
+            <li class="bold"><a class="collapsible-header waves-effect waves-teal">CSS</a>
+              <div class="collapsible-body">
+                <ul>
+                  <li><a href="https://env-175318.customer.cloud.microstrategy.com/MicroStrategyLibrary/app/B7CA92F04B9FAE8D941C3E9B7E0CD754/7281AE8011EA7A03B11C0080EFD57DCB" target="mstrframe" class="sidenav-close">Color</a></li>
+                  <li><a href="grid.html">Grid</a></li>
+                  <li><a href="helpers.html">Helpers</a></li>
+                  <li><a href="media-css.html">Media</a></li>
+                  <li><a href="pulse.html">Pulse</a></li>
+                  <li><a href="sass.html">Sass</a></li>
+                  <li><a href="shadow.html">Shadow</a></li>
+                  <li><a href="table.html">Table</a></li>
+                  <li><a href="css-transitions.html">Transitions</a></li>
+                  <li><a href="typography.html">Typography</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="bold"><a class="collapsible-header waves-effect waves-teal">Components</a>
+              <div class="collapsible-body">
+                <ul>
+                  <li><a href="badges.html">Badges</a></li>
+                  <li><a href="buttons.html">Buttons</a></li>
+                  <li><a href="breadcrumbs.html">Breadcrumbs</a></li>
+                  <li><a href="cards.html">Cards</a></li>
+                  <li><a href="collections.html">Collections</a></li>
+                  <li><a href="floating-action-button.html">Floating Action Button</a></li>
+                  <li><a href="footer.html">Footer</a></li>
+                  <li><a href="icons.html">Icons</a></li>
+                  <li><a href="navbar.html">Navbar</a></li>
+                  <li><a href="pagination.html">Pagination</a></li>
+                  <li><a href="preloader.html">Preloader</a></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </li>
+    </ul>
+
+        <div class="row">
+          <div id="options" class="scrollspy section"></div>
+          <div id="methods" class="scrollspy section"></div>
+          <div id="properties" class="scrollspy section"></div>
+          <div id="close-trigger" class="section scrollspy"></div>
+          <div id="variations" class="scrollspy section"></div>
+        </div>
+      </div>
+    </main>    
+
+<!--<iframe name="mstrframe" src="https://env-175318.customer.cloud.microstrategy.com/MicroStrategy/" style="height: 50vh;width: 100vw; position:fixed; top:36px; left:0; border:none;"></iframe>
+
+        <p id="dossierContainer1" >Loading...</p>
+style="position:fixed; bottom:0px; left:0; border:1px solid black;width: 100vw; height: 50vh;"
+        <a href="#" data-target="slide-out" class="sidenav-trigger btn" style="position:fixed; left:0px; top:0px">MY ANALYTICS ></a>
+
+-->
+<div id="myChart" style="width: 800px; height: 400px"></div>
+
+
+      <!--JavaScript at end of body for optimized loading-->
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+  <script src="https://env-175318.customer.cloud.microstrategy.com/MicroStrategyLibrary/javascript/embeddinglib.js"></script>
+
+<script>
+
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.collapsible');
+    var instances = M.Collapsible.init(elems, options);
+  });
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.sidenav');
+    var instances = M.Sidenav.init(elems, options);
+  });
+
+    document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.dropdown-trigger');
+    var instances = M.Dropdown.init(elems, options);
+  });
+
+
+</script>
+<script>
+  var config = {
+    "projectID": "B7CA92F04B9FAE8D941C3E9B7E0CD754",
+    "username" : "",
+    "password": "",
+    "webserver" : "https://env-175318.customer.cloud.microstrategy.com",
+    "reportID" : "0124684A11EAA64533D90080EF95B822",
+  "miniVis1ID": "7281AE8011EA7A03B11C0080EFD57DCB",
+  "miniVis2ID": "795764214FD1E1E33E7C4A83EAFE3BA5",
+  "dossier1ID": "21B5BAD411EA7812420A0080EF25E585",
+  "dossier2ID": "43CDADC942EA17F40F7629BE9D48861B"
+};
+
+    const baseRestURL = config.webserver + "/MicroStrategyLibrary";
+
+    let dossier3 = null;
+    const projectUrl = baseRestURL + '/app/' + config.projectID;
+
+    const miniVis1URL = projectUrl + '/' + config.miniVis1ID;
+    const miniVis2URL = projectUrl + '/' + config.miniVis2ID;
+    const dossier1URL = projectUrl + '/' + config.dossier1ID;
+    const dossier2URL = projectUrl + '/' + config.dossier2ID;
+
+alert(miniVis1URL);
+
+    let embedded_dossier = null;
+    let allFilters = null;
+    let filterStateIndex = null;
+
+    const loginOptions = {
+      method: 'POST',
+      credentials: 'include', //include cookie
+      mode: 'cors', //set as CORS mode for cross origin resource sharing
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        //loginMode: 8 // Login as guest user.
+        "loginMode": 1, // standard login mode
+        "username": config.username,
+        "password": config.password
+      })
+    };
+
+
+    const populateDossiers = (token) => {
+      //populate div with Dossier: Section 2 - Single Viz 1
+      alert("trying");
+      microstrategy.dossier.create({
+        placeholder: document.getElementById("dossierContainer1"),
+        url: miniVis1URL,
+        enableCustomAuthentication: true,
+        enableResponsive: true,
+        navigationBar: {
+          enabled: false,
+          gotoLibrary: false,
+          title: false,
+          toc: false,
+          reset: false,
+          reprompt: false,
+          share: false,
+          comment: false,
+          notification: false,
+          filter: false,
+          options: false,
+          search: false,
+          bookmark: false
+        },
+        dockedTOC: {
+          dockedPosition: "left",
+          theme: "light",
+          canClose: true,
+          dockChangeable: false,
+          isDocked: true
+        },
+        dockedComment: {
+          dockedPosition: "right",
+          canClose: true,
+          dockChangeable: false,
+          isDocked: true
+        },
+        filterFeature: {
+          enabled: false,
+          edit: false,
+          summary: true
+        },
+        enableCollaboration: false,
+        customAuthenticationType: microstrategy.dossier.CustomAuthenticationType.AUTH_TOKEN,
+        getLoginToken: (token) => { return token }
+      }).then(function (dossier) {
+              alert("trying2" + token);
+
+        //any code you want to run after dossier loads
+      });
+    }
+alert("after populate");
+
+
+/********************************************************
+      //populate div with Dossier: Section 2 - Single Viz 2
+      microstrategy.dossier.create({
+        placeholder: document.getElementById("dossierContainer2"),
+        url: miniVis2URL,
+        enableCustomAuthentication: true,
+        enableResponsive: true,
+        navigationBar: {
+          enabled: false,
+          gotoLibrary: false,
+          title: false,
+          toc: false,
+          reset: false,
+          reprompt: false,
+          share: false,
+          comment: false,
+          notification: false,
+          filter: false,
+          options: false,
+          search: false,
+          bookmark: false
+        },
+        dockedTOC: {
+          dockedPosition: "left",
+          theme: "light",
+          canClose: true,
+          dockChangeable: false,
+          isDocked: true
+        },
+        dockedComment: {
+          dockedPosition: "right",
+          canClose: true,
+          dockChangeable: false,
+          isDocked: true
+        },
+        filterFeature: {
+          enabled: false,
+          edit: false,
+          summary: true
+        },
+        enableCollaboration: false,
+        customAuthenticationType: microstrategy.dossier.CustomAuthenticationType.AUTH_TOKEN,
+        getLoginToken: (token) => { return token }
+      }).then(function (dossier) {
+        //any code you want to run after dossier loads
+      });
+
+      //populate div with Dossier: Section 3 - Full Embed 1
+      microstrategy.dossier.create({
+        placeholder: document.getElementById("dossierContainer3"),
+        url: dossier1URL,
+        enableCustomAuthentication: true,
+        enableResponsive: true,
+        navigationBar: {
+          enabled: false,
+          gotoLibrary: false,
+          title: false,
+          toc: true,
+          reset: true,
+          reprompt: false,
+          share: false,
+          comment: true,
+          notification: false,
+          filter: true,
+          options: false,
+          search: false,
+          bookmark: false
+        },
+        dockedTOC: {
+          dockedPosition: "left",
+          theme: "light",
+          canClose: true,
+          dockChangeable: false,
+          isDocked: true
+        },
+        dockedComment: {
+          dockedPosition: "right",
+          canClose: true,
+          dockChangeable: false,
+          isDocked: true
+        },
+        filterFeature: {
+          enabled: true,
+          edit: false,
+          summary: true
+        },
+        enableCollaboration: false,
+        customAuthenticationType: microstrategy.dossier.CustomAuthenticationType.AUTH_TOKEN,
+        getLoginToken: (token) => { return token }
+      }).then(function (dossier) {
+        //any code you want to run after dossier loads
+        dossier3 = dossier;
+      });
+
+      microstrategy.dossier.create({
+        // This is the document's <div> container where the Dossier should be placed.
+        placeholder: document.getElementById("dossierContainer"),
+        url: dossier2URL,
+
+        // The following parameters define the appearance of the Dossier.
+        // E.g. is the navigation or collaboration bar displayed, do right-click actions work, etc.
+        disableNotification: true,
+        filterFeature: {
+          enabled: false,
+          edit: true,
+          summary: true
+        },
+        dossierFeature: {
+          readonly: true
+        },
+        shareFeature: {
+          enabled: true,
+          invite: false,
+          link: false,
+          email: false,
+          export: false,
+          download: false
+        },
+        enableCollaboration: false,
+        dockedComment: {
+          dockedPosition: "right",
+          canClose: false,
+          dockChangeable: false,
+          isDocked: true
+        },
+        enableResponsive: true,
+        // And finally the necessary parameters for the user authentication
+        enableCustomAuthentication: true,
+        customAuthenticationType: microstrategy.dossier.CustomAuthenticationType.AUTH_TOKEN,
+        getLoginToken: (token) => { return token }
+      }).then(function (dossier) {
+        // after the Dossier has finished loading...
+        // get hook to dossier
+        embedded_dossier = dossier;
+
+        // define event handler
+        var selectHandler = function (e) {
+          var selectionAttribute = null;
+          var selectionElement = null;
+          for (var i = 0; i < e.graphics.length; i++) {
+            var selection = e.graphics[i];
+            selectionAttribute = selection[0].n;
+            selectionElement = selection[0].v;
+          }
+          // Define action. In our case, just display the selected element's name
+          document.getElementById("selectionHeader").innerHTML = selectionAttribute;
+          document.getElementById("selectionValue").innerHTML = selectionElement;
+        };
+
+        // register event handler to capture selections by clicks on visualization
+        embedded_dossier.registerEventHandler(
+          "onGraphicsSelected",
+          selectHandler)
+******************************/
+        /*
+        * Now that the dossier has loaded, let's build an attribute selector in our application.
+        * In our example we use a <ul> object with a <li> element for each attribute element.
+        */
+
+/*************************
+        // get list of all filters
+        embedded_dossier.getFilterList().then(function (filterList) {
+          allFilters = filterList;
+
+          // loop through all filters
+          for (var i = 0; i < allFilters.length; i++) {
+
+            /*
+            * If a filter is of type attributeSelector, then create a <li> element.
+            * Note: In this example we build only one list. For multiple filters
+            * we should build a separate selector for each filter!
+            *\\\\\\\\\\\\\\\\\\/
+
+            // If attributeSelector
+            if (allFilters[i].filterType === "attributeSelector") {
+
+              // loop through all elements
+              for (var j = 0; j < allFilters[i].filterDetail.items.length; j++) {
+
+                // for each element, create a <li>
+                var item = document.createElement('li');
+
+                // name the <li> element like the attribute element and also set its id
+                item.appendChild(document.createTextNode(allFilters[i].filterDetail.items[j].name));
+                item.id = allFilters[i].filterDetail.items[j].name;
+
+                // if the filter element is selected, add a certain style sheet so we can distinguish it from the rest
+                if (allFilters[i].filterDetail.items[j].selected) item.classList.add("w3-grey");
+
+                /*
+                * Finally, we want our <li> elements to function as selectors.
+                * So let's add an onclick function to them, that modifies the Dossier's filter.
+                *\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\/
+                item.onclick = function () {
+
+                  // Remove highlight from all <li> items...
+                  var c = this.parentNode.children;
+                  for (var x = 0; x < c.length; x++) {
+                    c[x].classList.remove("w3-grey");
+                  }
+                  // ...and add highlight only to element which has been clicked.
+                  this.classList.add("w3-grey");
+
+                  // create a filterDataObj
+                  var filterDataObj = {};
+                  var filterInfoObj = {};
+                  var selectionObj = {};
+
+                  // search for the filter that matches the <li>'s id and retrieve the filterKey and value
+                  for (var i = 0; i < allFilters.length; i++) {
+                    for (var j = 0; j < allFilters[i].filterDetail.items.length; j++) {
+                      if (allFilters[i].filterDetail.items[j].name === this.id) {
+                        filterInfoObj.key = allFilters[i].filterKey;
+                        selectionObj.value = allFilters[i].filterDetail.items[j].value;
+                      }
+                    }
+                  }
+
+                  // call the Embedding SDK function to change the filter selection
+                  filterDataObj.selection = selectionObj;
+                  filterDataObj.filterInfo = filterInfoObj;
+                  embedded_dossier.filterSelectSingleAttribute(filterDataObj);
+
+                };
+
+                // And finally append the created <li> element to the <ul> object
+                document.getElementById("filterList").appendChild(item);
+
+                /*
+                * Now that we have created our filter element selector including
+                * the formatting and the onclick-action, let's add the filter name as a header.
+                *\\\\\\\\\\\\\\\\\\\\\/
+                document.getElementById("filterHeader").innerHTML = allFilters[i].filterName;
+              }
+            }
+          }
+        });
+      });
+
+    }
+**********************************/
+    const populateTable = (token) => {
+
+      fetch(
+        config.webserver + '/MicroStrategyLibrary/api/reports/' + config.reportID + '/instances',
+        {
+          method: 'POST',
+          credentials: 'include', //include cookie
+          mode: 'cors', //set as CORS mode for cross origin resource sharing
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'X-MSTR-AuthToken': token,
+            'X-MSTR-ProjectID': config.projectID
+          }
+        }
+      ).then(response => {
+        return response.json();
+      }).then((data) => {
+        createGrid(data);
+      }).catch((error) => {
+        console.log(error);
+      });
+
+    };
+
+
+    const getAuthToken = () => {
+      return fetch(baseRestURL + '/api/auth/login', loginOptions).then((response) => {
+        if (response.ok) {
+                              alert("OK1 " + response.headers.get('x-mstr-authToken'));
+
+          return response.headers.get('x-mstr-authToken');
+        } else if (response.status === 401) {
+          // try again
+                    alert("401 " + baseRestURL);
+
+          return getAuthToken();
+        } else {
+                    alert("OK " + response.json);
+
+          response.json().then((json) => {
+            console.log(json);
+          });
+        }
+      }).catch((error) => {
+        console.log(error);
+      });
+    };
+
+
+    function createGrid(response) {
+      //Create columns for jquery table:
+      var fields = [];
+
+      var def = response.result.definition;
+      for (var i = 0; i < def.attributes.length; i++) {
+        var field = {};
+        field.name = def.attributes[i].name;
+        field.type = "text";
+
+        fields.push(field);
+      }
+      for (var i = 0; i < def.metrics.length; i++) {
+        var field = {};
+        field.name = def.metrics[i].name;
+        field.type = "number";
+        fields.push(field);
+      }
+
+      //flatten data for jquery rendering (I'm using a transform someone else made to simplify the process)
+      var flattenedData = transformingTreeJsonToGridData(response);
+
+      //further tweak the transform to meet needs for jquery:
+
+      var formattedData = [];
+
+      for (var i = 1; i < flattenedData.length; i++) {
+        var row = flattenedData[i];
+
+        var formattedRow = {};
+
+        for (var j = 0; j < row.length; j++) {
+          formattedRow[fields[j].name] = row[j];
+        }
+        formattedData.push(formattedRow);
+      }
+
+      $("#jsGrid").jsGrid({
+        width: "100%",
+        height: "400px",
+
+        inserting: false,
+        editing: false,
+        sorting: false,
+        paging: true,
+        filtering: false,
+
+        pageButtonCount: 5,
+
+        data: formattedData,
+
+        fields: fields
+      });
+    }
+
+
+    getAuthToken()
+      .then((token) => {
+                            alert("OK2 " + token);
+        populateDossiers(token);
+        //populateTable(token);
+      }).catch((error) => {
+        console.log(error);
+      });
+
+
+
+</script>
+    </body>
+
+
+  </html>

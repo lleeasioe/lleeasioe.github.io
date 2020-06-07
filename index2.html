@@ -1,0 +1,242 @@
+ <!DOCTYPE html>
+  <html>
+    <head>
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <link href="css/prism.css" rel="stylesheet">
+    <link href="css/materialize.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/ghpages-materialize.css" type="text/css" rel="stylesheet" media="screen,projection">
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+
+    <body>
+
+
+        <p id="dossierContainer1" >Loading...</p>
+
+
+<script src="https://env-175318.customer.cloud.microstrategy.com/MicroStrategyLibrary/javascript/embeddinglib.js"></script>
+
+
+<script>
+  var config = {
+    "projectID": "B7CA92F04B9FAE8D941C3E9B7E0CD754",
+    "username" : "",
+    "password": "",
+    "webserver" : "https://env-175318.customer.cloud.microstrategy.com",
+    "reportID" : "0124684A11EAA64533D90080EF95B822",
+  "miniVis1ID": "7281AE8011EA7A03B11C0080EFD57DCB",
+  "miniVis2ID": "795764214FD1E1E33E7C4A83EAFE3BA5",
+  "dossier1ID": "21B5BAD411EA7812420A0080EF25E585",
+  "dossier2ID": "43CDADC942EA17F40F7629BE9D48861B"
+};
+
+    const baseRestURL = config.webserver + "/MicroStrategyLibrary";
+
+    let dossier3 = null;
+    const projectUrl = baseRestURL + '/app/' + config.projectID;
+
+    const miniVis1URL = projectUrl + '/' + config.miniVis1ID;
+    const miniVis2URL = projectUrl + '/' + config.miniVis2ID;
+    const dossier1URL = projectUrl + '/' + config.dossier1ID;
+    const dossier2URL = projectUrl + '/' + config.dossier2ID;
+
+alert(miniVis1URL);
+
+    let embedded_dossier = null;
+    let allFilters = null;
+    let filterStateIndex = null;
+
+    const loginOptions = {
+      method: 'POST',
+      credentials: 'include', //include cookie
+      mode: 'cors', //set as CORS mode for cross origin resource sharing
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        //loginMode: 8 // Login as guest user.
+        "loginMode": 1, // standard login mode
+        "username": config.username,
+        "password": config.password
+      })
+    };
+
+
+    const populateDossiers = (token) => {
+      //populate div with Dossier: Section 2 - Single Viz 1
+      alert("trying");
+      microstrategy.dossier.create({
+        placeholder: document.getElementById("dossierContainer1"),
+        url: miniVis1URL,
+        enableCustomAuthentication: true,
+        enableResponsive: true,
+        navigationBar: {
+          enabled: false,
+          gotoLibrary: false,
+          title: false,
+          toc: false,
+          reset: false,
+          reprompt: false,
+          share: false,
+          comment: false,
+          notification: false,
+          filter: false,
+          options: false,
+          search: false,
+          bookmark: false
+        },
+        dockedTOC: {
+          dockedPosition: "left",
+          theme: "light",
+          canClose: true,
+          dockChangeable: false,
+          isDocked: true
+        },
+        dockedComment: {
+          dockedPosition: "right",
+          canClose: true,
+          dockChangeable: false,
+          isDocked: true
+        },
+        filterFeature: {
+          enabled: false,
+          edit: false,
+          summary: true
+        },
+        enableCollaboration: false,
+        customAuthenticationType: microstrategy.dossier.CustomAuthenticationType.AUTH_TOKEN,
+        getLoginToken: (token) => { return token }
+      }).then(function (dossier) {
+              alert("trying2" + token);
+
+        //any code you want to run after dossier loads
+      });
+    }
+alert("after populate");
+
+
+    const populateTable = (token) => {
+
+      fetch(
+        config.webserver + '/MicroStrategyLibrary/api/reports/' + config.reportID + '/instances',
+        {
+          method: 'POST',
+          credentials: 'include', //include cookie
+          mode: 'cors', //set as CORS mode for cross origin resource sharing
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'X-MSTR-AuthToken': token,
+            'X-MSTR-ProjectID': config.projectID
+          }
+        }
+      ).then(response => {
+        return response.json();
+      }).then((data) => {
+        createGrid(data);
+      }).catch((error) => {
+        console.log(error);
+      });
+
+    };
+
+
+    const getAuthToken = () => {
+      return fetch(baseRestURL + '/api/auth/login', loginOptions).then((response) => {
+        if (response.ok) {
+                              alert("OK1 " + response.headers.get('x-mstr-authToken'));
+
+          return response.headers.get('x-mstr-authToken');
+        } else if (response.status === 401) {
+          // try again
+                    alert("401 " + baseRestURL);
+
+          return getAuthToken();
+        } else {
+                    alert("OK " + response.json);
+
+          response.json().then((json) => {
+            console.log(json);
+          });
+        }
+      }).catch((error) => {
+        console.log(error);
+      });
+    };
+
+
+    function createGrid(response) {
+      //Create columns for jquery table:
+      var fields = [];
+
+      var def = response.result.definition;
+      for (var i = 0; i < def.attributes.length; i++) {
+        var field = {};
+        field.name = def.attributes[i].name;
+        field.type = "text";
+
+        fields.push(field);
+      }
+      for (var i = 0; i < def.metrics.length; i++) {
+        var field = {};
+        field.name = def.metrics[i].name;
+        field.type = "number";
+        fields.push(field);
+      }
+
+      //flatten data for jquery rendering (I'm using a transform someone else made to simplify the process)
+      var flattenedData = transformingTreeJsonToGridData(response);
+
+      //further tweak the transform to meet needs for jquery:
+
+      var formattedData = [];
+
+      for (var i = 1; i < flattenedData.length; i++) {
+        var row = flattenedData[i];
+
+        var formattedRow = {};
+
+        for (var j = 0; j < row.length; j++) {
+          formattedRow[fields[j].name] = row[j];
+        }
+        formattedData.push(formattedRow);
+      }
+
+      $("#jsGrid").jsGrid({
+        width: "100%",
+        height: "400px",
+
+        inserting: false,
+        editing: false,
+        sorting: false,
+        paging: true,
+        filtering: false,
+
+        pageButtonCount: 5,
+
+        data: formattedData,
+
+        fields: fields
+      });
+    }
+
+
+    getAuthToken()
+      .then((token) => {
+                            alert("OK2 " + token);
+        populateDossiers(token);
+        //populateTable(token);
+      }).catch((error) => {
+        console.log(error);
+      });
+
+
+
+</script>
+    </body>
+
+
+  </html>
