@@ -171,7 +171,7 @@ function createAuthToken(){
     xhr.onreadystatechange = function() {
       if (xhr.readyState === 2) {
       		console.log("getting token")
-      		console.log("xhr.getResponseHeader('x-mstr-authToken')");
+      		console.log(xhr.getResponseHeader('x-mstr-authToken'));
           resolve(xhr.getResponseHeader('x-mstr-authToken'));
       } else {
           reject({
