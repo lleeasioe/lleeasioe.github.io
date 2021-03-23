@@ -30,16 +30,19 @@
 
       </header>
 -->
-    <main>
 
-      <div class="container">
-   
-<!--
-        <ul id="slide-out" class="sidenav">
+<main>
+    <div class="row" style="background-color:#EC7076">
+      <a href="#" data-target="slide-out" class="sidenav-trigger btn">MY ANALYTICS ></a>      
+    </div>
+
+
+
+        <ul id="slide-out" class="sidenav sidenav-fixed">
           <li>
             <div class="user-view">
               <div class="background">
-                <img src="images/office.jpg">
+                <img src="https://en.wikipedia.org/wiki/File:DFS_Group_logo.png">
               </div>
               <a href="#user">
                 <img class="circle" src="images/yuna.jpg">
@@ -68,10 +71,6 @@
           <li>
             <a class="waves-effect" href="#!">Third Link With Waves</a>
           </li>
-        </ul>
--->
-
-    <ul id="slide-out" class="sidenav">
         <li class="bold"><a href="index.html" class="waves-effect waves-teal">Home</a></li>
         <li class="bold"><a href="https://env-175318.customer.cloud.microstrategy.com/MicroStrategyLibrary/app/B7CA92F04B9FAE8D941C3E9B7E0CD754/7281AE8011EA7A03B11C0080EFD57DCB" target="mstrframe" class="waves-effect waves-teal sidenav-close">Corporate Sales Overview</a></li>
         <li class="no-padding">
@@ -109,28 +108,27 @@
                 </ul>
               </div>
             </li>
-          </ul>
-        </li>
-    </ul>
+        </ul>
+
+
 
         <div class="row">
-          <div id="options" class="scrollspy section"></div>
+          <div id="options" class="scrollspy section">sdfsdfsdfsdfsdfsdfsdf sdf sdf sdf sdf asdf asdf asdf </div>
           <div id="methods" class="scrollspy section"></div>
           <div id="properties" class="scrollspy section"></div>
           <div id="close-trigger" class="section scrollspy"></div>
           <div id="variations" class="scrollspy section"></div>
         </div>
-      </div>
-    </main>    
+  
+</main>
 
 <!--<iframe name="mstrframe" src="https://env-175318.customer.cloud.microstrategy.com/MicroStrategy/" style="height: 50vh;width: 100vw; position:fixed; top:36px; left:0; border:none;"></iframe>
 
         <p id="dossierContainer1" >Loading...</p>
-style="position:fixed; bottom:0px; left:0; border:1px solid black;width: 100vw; height: 50vh;"
-        <a href="#" data-target="slide-out" class="sidenav-trigger btn" style="position:fixed; left:0px; top:0px">MY ANALYTICS ></a>
+style="position:fixed; bottom:0px; left:0; border:1px solid black;width: 100vw; height: 50vh;"-->
+        <!--<a href="#" data-target="slide-out" class="sidenav-trigger btn" style="position:fixed; left:0px; top:0px">MY ANALYTICS ></a>-->
 
--->
-<div id="myChart" style="width: 800px; height: 400px"></div>
+<!--<div id="myChart" style="width: 800px; height: 400px"></div>-->
 
 
       <!--JavaScript at end of body for optimized loading-->
@@ -180,7 +178,6 @@ style="position:fixed; bottom:0px; left:0; border:1px solid black;width: 100vw; 
     const dossier1URL = projectUrl + '/' + config.dossier1ID;
     const dossier2URL = projectUrl + '/' + config.dossier2ID;
 
-alert(miniVis1URL);
 
     let embedded_dossier = null;
     let allFilters = null;
@@ -202,7 +199,6 @@ alert(miniVis1URL);
 
     const populateDossiers = (token) => {
       //populate div with Dossier: Section 2 - Single Viz 1
-      alert("trying");
       microstrategy.dossier.create({
         placeholder: document.getElementById("dossierContainer1"),
         url: miniVis1URL,
@@ -245,12 +241,10 @@ alert(miniVis1URL);
         customAuthenticationType: microstrategy.dossier.CustomAuthenticationType.AUTH_TOKEN,
         getLoginToken: (token) => { return token }
       }).then(function (dossier) {
-              alert("trying2" + token);
 
         //any code you want to run after dossier loads
       });
     }
-alert("after populate");
 
 
 /********************************************************
@@ -532,8 +526,7 @@ alert("after populate");
 
           return getAuthToken();
         } else {
-                    alert("OK " + response.json);
-
+//                    alert("OK " + response.json);
           response.json().then((json) => {
             console.log(json);
           });
@@ -602,7 +595,6 @@ alert("after populate");
 
     getAuthToken()
       .then((token) => {
-                            alert("OK2 " + token);
         populateDossiers(token);
         //populateTable(token);
       }).catch((error) => {
